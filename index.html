@@ -1,226 +1,183 @@
 <!DOCTYPE html>
 <html lang="it">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Violenza Contro le Donne</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      background: url('https://example.com/path/to/your/background-image.jpg') no-repeat center center fixed;
-      background-size: cover;
-      margin: 0;
-      padding: 20px;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: space-between;
-      min-height: 100vh;
-    }
-    .container {
-      max-width: 800px;
-      background-color: rgba(255, 255, 255, 0.8);
-      padding: 20px;
-      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-      border-radius: 8px;
-      text-align: center;
-    }
-    h1 {
-      color: #333;
-      margin-bottom: 20px;
-    }
-    .cards {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: space-around;
-      margin-bottom: 20px;
-    }
-    .card {
-      background-color: #fff;
-      padding: 20px;
-      margin: 10px;
-      border-radius: 8px;
-      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-      flex: 1;
-      max-width: 45%;
-      text-align: left;
-    }
-    .card h2 {
-      margin-top: 0;
-      color: #333;
-    }
-    .card p {
-      color: #666;
-      font-size: 16px;
-    }
-    .cta {
-      background-color: #ff6347;
-      color: #fff;
-      padding: 20px;
-      border-radius: 8px;
-      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    }
-    .cta h2 {
-      margin-top: 0;
-    }
-    .cta a {
-      color: #fff;
-      text-decoration: none;
-      font-weight: bold;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Violenza di Genere</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f9f9f9;
+        }
+        .header {
+            text-align: center;
+            padding: 20px;
+            background-color: #8b0000;
+            color: white;
+        }
+        .container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+            padding: 20px;
+        }
+        .card {
+            background-color: white;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            width: 200px;
+            padding: 15px;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: transform 0.2s ease;
+        }
+        .card:hover {
+            transform: scale(1.05);
+        }
+        .card button {
+            margin-top: 10px;
+            padding: 10px 20px;
+            background-color: #8b0000;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .card button:hover {
+            background-color: #a00000;
+        }
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.6);
+            justify-content: center;
+            align-items: center;
+        }
+        .modal-content {
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            width: 80%;
+            max-width: 500px;
+        }
+        .close-btn {
+            background-color: #8b0000;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 15px;
+        }
+        .close-btn:hover {
+            background-color: #a00000;
+        }
+    </style>
 </head>
 <body>
-  <div class="container">
-    <h1>Violenza Contro le Donne</h1>
-    <div class="cards">
-      <div class="card">
-        <h2>Tipi di Violenza</h2>
-        <p>Gli atti di violenza contro le donne possono essere fisici, psicologici, sessuali ed economici. È fondamentale riconoscere e contrastare ogni forma di violenza.</p>
-      </div>
-    color: #333;
-}
-.modal p {
-color: #666;
-font-size: 16px;
-line-height: 1.6;
-}
-.modal .benefits {
-display: flex;
-flex-wrap: wrap;
-margin-bottom: 20px;
-}
-.modal .benefit-card {
-background-color: #fff;
-padding: 10px;
-margin: 10px;
-border-radius: 5px;
-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
-flex: 1;
-max-width: calc(50% - 20px);
-text-align: center;
-}
-.modal .benefit-card img {
-width: 30px;
-height: 30px;
-margin-bottom: 10px;
-}
-.modal .benefit-card p {
-margin: 0;
-font-size: 14px;
-}
-.modal button {
-padding: 10px 20px;
-font-size: 16px;
-cursor: pointer;
-border: none;
-background-color: #ff6347;
-color: #fff;
-border-radius: 5px;
-transition: background-color 0.3s;
-}
-.modal button:hover {
-background-color: #e55342;
-}
-.modal .close {
-position: absolute;
-top: 10px;
-right: 10px;
-background: none;
-border: none;
-cursor: pointer;
-font-size: 18px;
-color: #999;
-}
-.modal .close:hover {
-color: #333;
-}
-</style>
-</head>
-<body>
-<div class="container">
-<h1>Violenza Contro le Donne</h1>
-<div class="cards">
-<div class="card">
-<h2>Tipi di Violenza</h2>
-<p>Gli atti di violenza contro le donne possono essere fisici, psicologici, sessuali ed economici. È fondamentale riconoscere e contrastare ogni forma di violenza.</p>
-</div>
-<div class="card">
-<h2>Conseguenze</h2>
-<p>La violenza ha gravi conseguenze sulla salute fisica e mentale delle vittime, e può portare a problemi a lungo termine, come depressione, ansia e disturbo da stress post-traumatico.</p>
-</div>
-<div class="card">
-<h2>Prevenzione e Supporto</h2>
-<p>È essenziale promuovere l'educazione e la sensibilizzazione, e fornire supporto alle vittime attraverso servizi di assistenza, rifugi sicuri e leggi protettive.</p>
-</div>
-<div class="card">
-<h2>Conclusione</h2>
-<p>Grazie per aver seguito questa presentazione. Spero che vi abbia fornito una maggiore consapevolezza su questo importante tema.</p>
-</div>
-</div>
-<div class="cta">
-<h2>Esplora i nostri pacchetti VIP</h2>
-<a href="#">Scopri di più</a>
-</div>
-<button id="openModal">Apri Modale</button>
-</div>
+    <div class="header">
+        <h1>Violenza di Genere</h1>
+        <p>Esplora i temi per sensibilizzare e comprendere meglio il problema.</p>
+    </div>
+    <div class="container">
+        <!-- Riquadri tematici -->
+        <div class="card">
+            <h3>Cos'Ã¨ la violenza di genere?</h3>
+            <button onclick="openModal('content1')">Approfondisci</button>
+        </div>
+        <div class="card">
+            <h3>Tipi di violenza</h3>
+            <button onclick="openModal('content2')">Approfondisci</button>
+        </div>
+        <div class="card">
+            <h3>Cause della violenza</h3>
+            <button onclick="openModal('content3')">Approfondisci</button>
+        </div>
+        <div class="card">
+            <h3>Dati statistici</h3>
+            <button onclick="openModal('content4')">Approfondisci</button>
+        </div>
+        <div class="card">
+            <h3>Leggi e protezioni</h3>
+            <button onclick="openModal('content5')">Approfondisci</button>
+        </div>
+        <div class="card">
+            <h3>Come aiutare</h3>
+            <button onclick="openModal('content6')">Approfondisci</button>
+        </div>
+        <div class="card">
+            <h3>Risorse utili</h3>
+            <button onclick="openModal('content7')">Approfondisci</button>
+        </div>
+    </div>
 
-<!-- Finestra modale -->
-<div class="modal-overlay" id="modalOverlay">
-<div class="modal">
-<button class="close" id="closeModal">&times;</button>
-<h2>Pacchetto VIP</h2>
-<p>Offriamo benefici speciali per gli appassionati di StarCraft a un prezzo di €5,00. Scopri di più sui vantaggi del nostro pacchetto VIP.</p>
-<div class="benefits">
-<div class="benefit-card">
-<img src="https://example.com/icon1.png" alt="Icona">
-<p>Monete Immediate</p>
-</div>
-<div class="benefit-card">
-<img src="https://example.com/icon2.png" alt="Icona">
-<p>Coda Prioritaria</p>
-</div>
-<div class="benefit-card">
-<img src="https://example.com/icon3.png" alt="Icona">
-<p>Permessi Generali</p>
-</div>
-<div class="benefit-card">
-<img src="https://example.com/icon4.png" alt="Icona">
-<p>Ruolo Esclusivo</p>
-</div>
-<div class="benefit-card">
-<img src="https://example.com/icon5.png" alt="Icona">
-<p>Cosmetici Esclusivi</p>
-</div>
-<div class="benefit-card">
-<img src="https://example.com/icon6.png" alt="Icona">
-<p>Accesso VIP</p>
-</div>
-</div>
-<button>Acquista Ora</button>
-<p>Per ulteriori dettagli, visita il nostro server Discord ufficiale.</p>
-</div>
-</div>
+    <!-- Modali -->
+    <div id="content1" class="modal">
+        <div class="modal-content">
+            <h2>Cos'Ã¨ la violenza di genere?</h2>
+            <p>La violenza di genere include atti di violenza fisica, psicologica, economica e sessuale contro una persona in base al genere.</p>
+            <button class="close-btn" onclick="closeModal('content1')">Chiudi</button>
+        </div>
+    </div>
+    <div id="content2" class="modal">
+        <div class="modal-content">
+            <h2>Tipi di violenza</h2>
+            <p>Comprende violenza domestica, stalking, molestie sessuali, tratta di persone e femminicidio.</p>
+            <button class="close-btn" onclick="closeModal('content2')">Chiudi</button>
+        </div>
+    </div>
+    <div id="content3" class="modal">
+        <div class="modal-content">
+            <h2>Cause della violenza</h2>
+            <p>Le cause includono stereotipi di genere, disuguaglianze, mancanza di educazione e fattori culturali.</p>
+            <button class="close-btn" onclick="closeModal('content3')">Chiudi</button>
+        </div>
+    </div>
+    <div id="content4" class="modal">
+        <div class="modal-content">
+            <h2>Dati statistici</h2>
+            <p>Ogni anno milioni di donne e persone vulnerabili subiscono violenze. Statistiche evidenziano un aumento nei periodi di crisi.</p>
+            <button class="close-btn" onclick="closeModal('content4')">Chiudi</button>
+        </div>
+    </div>
+    <div id="content5" class="modal">
+        <div class="modal-content">
+            <h2>Leggi e protezioni</h2>
+            <p>Le legislazioni in molti paesi offrono supporto legale, protezione e assistenza alle vittime.</p>
+            <button class="close-btn" onclick="closeModal('content5')">Chiudi</button>
+        </div>
+    </div>
+    <div id="content6" class="modal">
+        <div class="modal-content">
+            <h2>Come aiutare</h2>
+            <p>Puoi aiutare sostenendo le vittime, segnalando abusi e promuovendo l'educazione alla paritÃ  di genere.</p>
+            <button class="close-btn" onclick="closeModal('content6')">Chiudi</button>
+        </div>
+    </div>
+    <div id="content7" class="modal">
+        <div class="modal-content">
+            <h2>Risorse utili</h2>
+            <p>Hotline, rifugi per le vittime e organizzazioni per i diritti umani offrono aiuto immediato.</p>
+            <button class="close-btn" onclick="closeModal('content7')">Chiudi</button>
+        </div>
+    </div>
 
-<script>
-// JavaScript per aprire e chiudere la finestra modale
-const openModalBtn = document.getElementById('openModal');
-const modalOverlay = document.getElementById('modalOverlay');
-const closeModalBtn = document.getElementById('closeModal');
+    <script>
+        function openModal(modalId) {
+            document.getElementById(modalId).style.display = 'flex';
+        }
 
-openModalBtn.addEventListener('click', () => {
-modalOverlay.style.display = 'flex';
-});
-
-closeModalBtn.addEventListener('click', () => {
-modalOverlay.style.display = 'none';
-});
-
-window.addEventListener('click', (event) => {
-if (event.target == modalOverlay) {
-modalOverlay.style.display = 'none';
-}
-});
-</script>
+        function closeModal(modalId) {
+            document.getElementById(modalId).style.display = 'none';
+        }
+    </script>
 </body>
 </html>
