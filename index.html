@@ -16,6 +16,8 @@
             padding: 20px;
             background-color: #832239;
             color: white;
+            <button id="musicToggle" onclick="toggleMusic()">🎵 Accendi Musica</button>
+            <audio id="backgroundMusic" src="https://open.spotify.com/intl-it/track/2NUbQT6aju93L8MsBvnwK4?si=ce74926af4ba46ca" loop></audio>
         }
         .container {
             display: flex;
@@ -273,6 +275,18 @@ esercitato contro le donne a causa del loro genere. </p>
 
         function closeModal(modalId) {
             document.getElementById(modalId).style.display = 'none';
+        }
+        function toggleMusic() {
+            const music = document.getElementById("backgroundMusic");
+            const button = document.getElementById("musicToggle");
+            
+            if (music.paused) {
+                music.play();
+                button.textContent = "🔇 Ferma Musica";
+            } else {
+                music.pause();
+                button.textContent = "🎵 Accendi Musica";
+            }
         }
     </script>
 </body>
