@@ -1,116 +1,309 @@
 <!DOCTYPE html>
 <html lang="it">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Profilo</title>
-<style>
-body {
-background-color: #000;
-background-image: linear-gradient(to bottom, #000, #333);
-}
-
-header {
-background-color: #333;
-padding: 20px;
-text-align: center;
-}
-
-h1 {
-font-size: 36px;
-font-weight: bold;
-color: #fff;
-}
-
-p {
-font-size: 18px;
-color: #fff;
-}
-
-main {
-display: flex;
-flex-direction: column;
-align-items: center;
-padding: 20px;
-}
-
-section {
-background-color: #333;
-padding: 20px;
-margin-bottom: 20px;
-border-radius: 10px;
-}
-
-img {
-width: 100px;
-height: 100px;
-border-radius: 50%;
-margin-right: 20px;
-}
-
-a {
-color: #fff;
-text-decoration: none;
-}
-
-button {
-background-color: #333;
-color: #fff;
-border: none;
-padding: 10px 20px;
-font-size: 16px;
-cursor: pointer;
-}
-
-button:hover {
-background-color: #444;
-}
-
-footer {
-background-color: #333;
-padding: 20px;
-text-align: center;
-}
-
-button {
-margin-right: 20px;
-}
-</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Violenza di Genere</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f9f9f9;
+        }
+        .header {
+            text-align: center;
+            padding: 20px;
+            background-color: #832239;
+            color: white;
+        }
+        .container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+            padding: 20px;
+        }
+        .card {
+            background-color: white;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            width: 200px;
+            padding: 15px;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: transform 0.2s ease;
+        }
+        .card:hover {
+            transform: scale(1.05);
+        }
+        .card button {
+            margin-top: 10px;
+            padding: 10px 20px;
+            background-color: #832239;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .card button:hover {
+            background-color: #a00000;
+        }
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.6);
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+        }
+        .modal-content {
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
+            max-height: 80%;
+            max-width: 600px;
+            overflow-y: auto;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            text-align: center;
+        }
+        .close-btn {
+            background-color: #832239;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 15px;
+        }
+        .close-btn:hover {
+            background-color: #a00000;
+        }
+    </style>
 </head>
 <body>
-<header>
-<h1>ScatchitYT</h1>
-<p>Proprietario & CEO StaryMC Network Modulo Principale</p>
-</header>
-<main>
-<section>
-<img src="immagine-profilo.png" alt="Immagine di profilo">
-<div>
-<a href="https://discord.starymc.it/">StaryMC</a>
-<a href="https://discord.gg/2UTtqGqrGc/">StarLity</a>
-<button>Aggiungi su Discord</button>
-</div>
-</section>
-<section>
-<h2>Musica</h2>
-<div>
-<button>Gioca</button>
-<button>Pausa</button>
-<button>Stop</button>
-</div>
-<div>
-<h3>i was only temporary</h3>
-<p>00:37</p>
-</div>
-</section>
-</main>
-<footer>
-<div>
-<button>&lt;</button>
-<button>&gt;</button>
-<button>Carica</button>
-<button>Compass</button>
-</div>
-</footer>
+    <div class="header">
+        <h1>Violenza di Genere</h1>
+        <p> Benvenuti alla nostra presentazione sulla violenza contro le donne. Questo è un problema importante che richiede la nostra attenzione e impegno per essere risolto </p>
+            <button id="musicToggle" onclick="toggleMusic()">🎵 Accendi Musica</button>
+            <audio id="backgroundMusic" src="https://drive.google.com/uc?export=download&id=1lOOirq_l61BotgY6c_QxfJY55DMa3hM9" loop></audio>
+    </div>
+    <div class="container">
+        <!-- Riquadri tematici -->
+        <div class="card">
+            <h3>Cos'è la violenza di genere?</h3>
+            <button onclick="openModal('content1')">Approfondisci</button>
+        </div>
+        <div class="card">
+            <h3>Tipi di violenza</h3>
+            <button onclick="openModal('content2')">Approfondisci</button>
+        </div>
+        <div class="card">
+            <h3>Cause della violenza</h3>
+            <button onclick="openModal('content3')">Approfondisci</button>
+        </div>
+        <div class="card">
+            <h3>Dati statistici</h3>
+            <button onclick="openModal('content4')">Approfondisci</button>
+        </div>
+        <div class="card">
+            <h3>Leggi e protezioni</h3>
+            <button onclick="openModal('content5')">Approfondisci</button>
+        </div>
+        <div class="card">
+            <h3>Film</h3>
+            <button onclick="openModal('content6')">Approfondisci</button>
+        </div>
+        <div class="card">
+            <h3>Libri</h3>
+            <button onclick="openModal('content7')">Approfondisci</button>
+        </div>
+        <div class="card">
+            <h3>Ringraziamenti</h3>
+            <button onclick="openModal('content8')">Approfondisci</button>
+        </div>
+    </div>
+
+    <!-- Modali -->
+    <div id="content1" class="modal">
+        <div class="modal-content">
+            <h2>Cos'è la violenza di genere?</h2>
+            <p> ✯ La <b><u>violenza di genere</u></b> è una forma di abuso <i>fisico</i>, <i>psicologico</i>, <i>sessuale</i> o <i>economico</i> che viene esercitato contro le donne a causa del loro genere. </p>
+<p> ✯ È una dinamica <i>diffusa</i> nella maggior parte delle popolazioni mondiali, e affonda le radici in concetti appartenenti ad un passato lontano, che vengono purtroppo mantenuti in vita da stereotipi, pregiudizi, atteggiamenti e schemi sociali. </p>
+<p>(Questo tipo di violenza può avvenire in diversi contesti: familiare, sociale, lavorativo e pubblico.) </p>
+            <button class="close-btn" onclick="closeModal('content1')">Chiudi</button>
+        </div>
+    </div>
+    <div id="content2" class="modal">
+        <div class="modal-content">
+            <h2>Tipi di violenza</h2>
+            <p> ✯ <b>Violenza domestica</b>: Maltrattamenti fisici, psicologici, economici e sessuali all'interno del contesto familiare. </p> 
+            <p> ✯ <b>Stalking</b>: Comportamenti di persecuzione e molestia reiterata che causano ansia e paura nella vittima. </p>
+            <p> ✯ <b>Violenza sessuale</b>: Ogni forma di contatto sessuale non consensuale. </p>
+            <p> ✯ <b>Molestie sessuali</b>: Comportamenti indesiderati a sfondo sessuale che creano un ambiente ostile e intimidatorio. </p>
+            <p> ✯ <b>Femminicidio</b>: Uccisione di una donna in ragione del suo genere. </p>
+            <p> ✯ <b>Sfruttamento della prostituzione</b>: Forzare una donna a prostituirsi mediante violenza, minaccia, inganno o abuso di potere. </p>
+            <p> ✯ <b>Matrimonio forzato</b>: Costringere una donna a sposarsi contro la sua volontà. </p>
+            <button class="close-btn" onclick="closeModal('content2')">Chiudi</button>
+        </div>
+    </div>
+    <div id="content3" class="modal">
+        <div class="modal-content">
+            <h2>Cause della violenza</h2>
+            <p> ✯ Dato che viviamo in una società che per secoli è stata dominata dall’<b>ideologia</b> secondo cui il <b>sesso maschile è quello dominante</b> e le donne devono in qualche modo restare subordinate agli uomini perché essi possano conservare la loro posizione di privilegio, ogni atto che venga visto come una minaccia allo status quo e all’egemonia del sesso dominante viene represso attraverso atteggiamenti che possono variare dallo sminuire la situazione fino all’aggressione fisica.  </p>
+            <p> ✯ Non si tratta, quindi, soltanto di <i>punire</i> quello che viene vissuto come un affronto dall’uomo di turno, ma di <i><b>proteggere un sistema di convinzioni e convenzioni che è alla base della comunità stessa</i></b>. </p>
+            <p> ✯ La messa in atto di queste pratiche repressive è talmente accettata a livello inconscio che <b>spesso la colpa ricade sulle vittime stesse</b>, sottoposte a umilianti interrogatori sul proprio comportamento o sul proprio stato mentale come fossero concause dell’aggressione subita. </p>
+            <button class="close-btn" onclick="closeModal('content3')">Chiudi</button>
+        </div>
+    </div>
+    <div id="content4" class="modal">
+        <div class="modal-content">
+            <h2>Dati statistici</h2>
+            <p> <b>✯  Violenza Fisica e Sessuale</b>: </p>
+            <p> - <b> 31.5% </b> delle donne tra i 16 e i 70 anni ha dichiarato di aver subito una qualche forma di violenza fisica o sessuale nel corso della propria vita. </p>
+            <br>
+            <p> <b> ✯  Violenza all'interno della Famiglia </b>: </p>
+            <p> - <b> 20.2%</b> delle donne ha subito violenza fisica o sessuale da parte del proprio partner attuale o precedente. </p>
+            <br>
+            <p> <b> ✯  Violenza al di Fuori della Famiglia </b>: </p>
+            <p> - <b> 13.6% </b> delle donne ha subito una qualche forma di violenza da parte di persone diverse dai partner (inclusi amici, conoscenti, colleghi di lavoro o estranei). </p>
+            <br>
+            <p> <b> ✯  Cambiamenti nel Tempo </b>: </p>
+            <p> - <b> Declino delle violenze gravi </b>: In generale, le forme più gravi di violenza fisica e sessuale sono diminuite nel corso degli anni. </p>
+            <br>
+            <p> <b> ✯ Denunce e Richiesta di Aiuto </b>: </p>
+            <p> - <b> Basso tasso di denuncia </b>: Nonostante l'ampia diffusione del fenomeno, solo una piccola parte delle vittime denuncia gli abusi. </p>
+            <br>
+            <br>
+            <p> <i> Fonti presi dal sito di <a href="https://www.istat.it">Istat</a> : <a href="https://www.istat.it/statistiche-per-temi/focus/violenza-sulle-donne/il-fenomeno/violenza-dentro-e-fuori-la-famiglia/il-numero-delle-vittime-e-le-forme-di-violenza/#:~:text=Ha%20subìto%20violenze%20fisiche%20o,mila">Link 1</a> e <a href="https://www.istat.it/wp-content/uploads/2024/01/Audizione-Istat-Commissione-Femminicidio-23-gennaio-2024.pdf">Link 2</a> </i> </p>
+            <button class="close-btn" onclick="closeModal('content4')">Chiudi</button>
+        </div>
+    </div>
+    <div id="content5" class="modal">
+        <div class="modal-content">
+            <h2>Leggi e protezioni</h2>
+            <p> ✯ <b>Ordine di protezione</b> : Misura cautelare che interdice il violento dall'avvicinarsi alla vittima e ai luoghi da lei frequentati. </p>
+            <p> ✯ <b>Denuncia e procedimenti penali</b>: La vittima può denunciare il reato alle autorità competenti, avviando un procedimento penale contro l'aggressore. </p>
+            <p> ✯ <b>Centri antiviolenza</b>: Strutture dedicate a fornire supporto psicologico, legale e sociale alle vittime di violenza. </p>
+            <p> ✯ <b>Case rifugio</b>: Luoghi sicuri dove le vittime possono trovare un riparo temporaneo.</p> 
+            <p> ✯ <b>Leggi specifiche</b>: In Italia, la legge n. 119/2013 (conosciuta anche come legge sul femminicidio) e il Codice Rosso (legge n. 69/2019) rafforzano le misure di protezione e accelerano i procedimenti giudiziari per i reati di violenza domestica e di genere.</p>
+            <p> ✯ <b>Programmi di recovery</b>: Interventi di recupero per dare alle vittime l'opportunità di ricostruire la propria vita. </p>
+            <p> ✯ <b>Educazione e prevenzione</b>: Campagne di sensibilizzazione e formazione per prevenire la violenza di genere e promuovere la parità di genere. </p>
+            <button class="close-btn" onclick="closeModal('content5')">Chiudi</button>
+        </div>
+    </div>
+    <div id="content6" class="modal">
+        <div class="modal-content">
+            <h2>Film</h2>
+            <p> FILM:</p>
+            <p> 1. "Una donna promettente (Promising Young Woman) (2020)"</p>
+            <p> •	Trama: Una giovane donna traumatizzata dalla violenza sessuale subita da una sua amica decide di vendicarsi, mettendo alla prova uomini che tentano di approfittarsi delle donne.</p>
+            <p> •	Perché vederlo: Innovativo e provocatorio, questo film unisce thriller e denuncia sociale, suscitando riflessioni sul consenso e la cultura dello stupro.</p>
+            <br>
+            <p>2. "La scelta di Anne - L’événement (2021)"</p>
+            <p> •	Trama: Francia anni ’60. Una giovane donna cerca di abortire illegalmente, affrontando stigma, solitudine e pericoli mortali.</p>
+            <p> •	Perché vederlo: Leone d’Oro a Venezia, il film denuncia la violenza istituzionale contro i diritti delle donne.</p>
+            <br>
+            <p>3. "Pieces of a Woman (2020)"</p>
+            <p> •	Trama: Una donna affronta un devastante lutto e una lunga battaglia legale dopo la morte del suo bambino durante un parto domestico.</p>
+            <p> •	Perché vederlo: L’interpretazione di Vanessa Kirby è intensa e il film esplora il dolore femminile da un punto di vista emotivo e potente.</p>
+            <br>
+            <p>4. "The Nightingale (2018)"</p>
+            <p> •	Trama: Nell’Australia coloniale del 1825, una giovane donna cerca vendetta contro gli uomini che hanno brutalmente ucciso la sua famiglia e abusato di lei.</p>
+            <p> •	Perché vederlo: Brutale e realistico, affronta la violenza con uno sguardo crudo ma necessario. </p>
+            <br>
+            <p>5. "Monica, O My Darling (2022)"</p>
+            <p> •	Trama: In questo neo-noir indiano, una donna sfrutta le sue relazioni sul lavoro per ottenere potere, ma subisce violenze e complotti.</p>
+            <p> •	Perché vederlo: Offre una prospettiva fresca e intensa in un mix di suspense e critica sociale.</p>
+            <br>
+            <p>6. "Luckiest Girl Alive (2022)"</p>
+            <p> •	Trama: Una donna di successo è costretta a fare i conti con un evento traumatico del passato quando un documentario riporta alla luce un episodio di violenza sessuale subito da giovane.</p>
+            <p> •	Perché vederlo: Affronta i traumi e le difficoltà di vivere con una violenza nascosta.</p>
+            <br>
+            <p>7. "Women Talking (2022)"</p>
+            <p> •	Trama: Un gruppo di donne in una comunità religiosa discute su come reagire agli abusi sistematici che hanno subito.</p>
+            <p> •	Perché vederlo: Basato su eventi reali, è un dramma corale sulla solidarietà e il potere della scelta.</p>
+            <br>
+            <p>8. "Maria Maddalena (2018)"</p>
+            <p> •	Trama: Racconta la storia di Maria Maddalena da una prospettiva che esalta il suo ruolo di donna in un mondo patriarcale e oppressivo.</p>
+            <p> •	Perché vederlo: Mostra la forza e il riscatto femminile anche in contesti storici e spirituali.</p>
+            <br>
+            <p>9. "Revenge (2017)"</p>
+            <p> •	Trama: Una donna brutalmente aggredita durante una vacanza si ribella ai suoi aggressori in una storia di vendetta estremamente violenta.</p>
+            <p> •	Perché vederlo: Il film sovverte il genere “rape-and-revenge” con uno sguardo femminile potente.</p>
+            <br>
+            <p>10. "She Said (2022)"</p>
+            <p> •	Trama: Due giornaliste del New York Times investigano sugli abusi sessuali di Harvey Weinstein, innescando il movimento #MeToo.</p>
+            <p> •	Perché vederlo: Basato su fatti reali, rappresenta il coraggio delle donne nel rompere il silenzio e affrontare il potere. </p>
+            <br>
+            <br>
+            <button class="close-btn" onclick="closeModal('content6')">Chiudi</button>
+        </div>
+    </div>
+    <div id="content7" class="modal">
+        <div class="modal-content">
+            <h2>LIBRI:</h2>
+            <p> Autobiografie e testimonianze: </p>
+            <br>
+            <p>1. “Stupro: una storia di amore” di Joyce Carol Oates </p>
+            <p> •Trama: Attraverso una madre e sua figlia vittime di violenza, il libro esplora il trauma, la vergogna e la lotta per la giustizia.</p>
+            <br>
+            <p>2. “Il coraggio di dire no” di Somaly Mam</p>
+            <p> •Trama: Autobiografia di una donna cambogiana sopravvissuta alla tratta sessuale, che poi ha dedicato la sua vita a salvare altre vittime.</p>
+            <br>
+            <p>3. “Io ci sono: La mia storia di non amore” di Lucia Annibali</p>
+            <p> •Trama: L’autrice racconta la sua esperienza di violenza domestica, culminata in un attacco con l’acido da parte del suo ex compagno.</p>
+            <br>
+            <p> Saggi e analisi: </p>
+            <br>
+            <p>4. “Ferite a morte” di Serena Dandini</p>
+            <p> •Trama: Una raccolta di monologhi ispirati a storie vere di femminicidio, scritti in modo poetico e provocatorio.</p>
+            <br>
+            <p>5. “Questo non è amore” di Concita De Gregorio</p>
+            <p> •Trama: Una raccolta di storie vere di donne vittime di violenza in Italia, basata su reportage giornalistici.</p>
+            <br>
+            <p>6. “Il silenzio degli uomini” di Matteo Bussola</p>
+            <p> •Trama: Un’indagine sulla mascolinità tossica e sul ruolo degli uomini nel combattere la violenza di genere.</p>
+            <br>
+            <p>7. “Se questi sono gli uomini” di Riccardo Iacona</p>
+            <p>•Trama: Un’inchiesta giornalistica sul fenomeno del femminicidio e sulla cultura della violenza contro le donne in Italia.</p>
+    <button class="close-btn" onclick="closeModal('content7')">Chiudi</button>
+        </div>
+    </div>
+    <div id="content8" class="modal">
+        <div class="modal-content">
+            <h2>Ringraziamenti</h2>
+            <p> ✯ Grazie per aver seguito questa presentazione. Spero che vi abbia fornito una maggiore consapevolezza su questo importante tema. </p>
+            <br>
+            <p><h5> ✯ Lavoro di <font face="Zapfino"> JiaQi Lin & Vlada Letyka </font></h5></p>
+            <button class="close-btn" onclick="closeModal('content8')">Chiudi</button>
+        </div>
+    </div>
+
+    <script>
+        function openModal(modalId) {
+            document.getElementById(modalId).style.display = 'flex';
+        }
+
+        function closeModal(modalId) {
+            document.getElementById(modalId).style.display = 'none';
+        }
+        function toggleMusic() {
+            const music = document.getElementById("backgroundMusic");
+            const button = document.getElementById("musicToggle");
+
+            if (music.paused) {
+                music.play();
+                button.textContent = "🔇 Ferma Musica";
+            } else {
+                music.pause();
+                button.textContent = "🎵 Accendi Musica";
+            }
+        }
+    </script>
 </body>
 </html>
